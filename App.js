@@ -1,8 +1,8 @@
 import express from 'express';
-import Hello from "./Hello.js"
-import Lab5 from "./Lab5.js";
-import CourseRoutes from "./Kanbas/courses/routes.js";
-import ModuleRoutes from "./Kanbas/Modules/routes.js";
+import ModuleRoutes from './routes/ModuleRoutes.js';
+import CourseRoutes from './routes/CourseRoutes.js';
+import Lab5 from './routes/Lab5.js';
+import Hello from './routes/Hello.js';
 import cors from "cors";
 const app = express()
 app.use(cors());

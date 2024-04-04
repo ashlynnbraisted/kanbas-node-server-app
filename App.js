@@ -7,7 +7,7 @@ import cors from "cors";
 const app = express()
 app.use(cors({
     origin: ["http://localhost:3000", "https://a5--cheerful-parfait-c509f6.netlify.app/"],
-    credentials: true,
+    credentials: true
 }));
 app.use(express.json());
 ModuleRoutes(app);

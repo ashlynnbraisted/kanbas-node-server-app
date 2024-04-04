@@ -5,7 +5,10 @@ import Lab5 from './Lab5.js'
 import Hello from './Hello.js';
 import cors from "cors";
 const app = express()
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000", "https://a5--cheerful-parfait-c509f6.netlify.app/"],
+    credentials: true,
+}));
 app.use(express.json());
 ModuleRoutes(app);
 CourseRoutes(app);

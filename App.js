@@ -6,7 +6,7 @@ import Hello from './Hello.js';
 import cors from "cors";
 const app = express()
 app.use(cors({
-    origin: ["http://localhost:3000", "https://a5--cheerful-parfait-c509f6.netlify.app/"],
+    origin: ["http://localhost:3000", "https://kanbas-node-server-app-02v7.onrender.com", "https://cheerful-parfait-c509f6.netlify.app"],
     credentials: true
 }));
 app.use(express.json());

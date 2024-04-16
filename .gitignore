@@ -19,9 +19,9 @@
 .env.production.local
 .idea
 node_modules
-.env
-.env.local
-.env.production
+# .env
+# .env.local
+# .env.production
 
 
 npm-debug.log*

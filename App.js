@@ -12,8 +12,8 @@ const CONNECTION_STRING =  process.env.DB_CONNECTION_STRING || 'mongodb://127.0.
 mongoose.connect(CONNECTION_STRING);
 const app = express()
 app.use(cors({
-    credentials: true,
-    origin: 'https://a6--cheerful-parfait-c509f6.netlify.app'
+    origin: "https://a6--cheerful-parfait-c509f6.netlify.app",
+    credentials: true
 }));
 const sessionOptions = {
     secret: process.env.SESSION_SECRET,

@@ -8,12 +8,12 @@ import CourseRoutes from './src/Kanbas/courses/routes.js';
 import Lab5 from './Lab5.js'
 import Hello from './Hello.js';
 import cors from "cors";
-const CONNECTION_STRING =  process.env.DB_CONNECTION_STRING
+const CONNECTION_STRING = 'mongodb://127.0.0.1:27017/kanbas' || process.env.DB_CONNECTION_STRING
 mongoose.connect(CONNECTION_STRING);
 const app = express()
 app.use(cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL
+    origin: 'https://a6--cheerful-parfait-c509f6.netlify.app'
 }));
 const sessionOptions = {
     secret: process.env.SESSION_SECRET,

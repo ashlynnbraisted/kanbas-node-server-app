@@ -1,7 +1,8 @@
 import model from "./model.js";
-export const createModule = (module) => {
+export const createModule = async (module) => {
   delete module._id;
-  return model.create(module);
+  const createdModule = await model.create(module);
+  return createdModule;
 };
 export const findAllModules = () => model.find();
 export const findModuleById = (moduleId) => model.findById(moduleId);

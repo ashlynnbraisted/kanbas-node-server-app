@@ -12,9 +12,16 @@ export default function UserRoutes(app) {
     };
   
   const findAllUsers = async (req, res) => {
-    const users = await dao.findAllUsers();
+    const role = req.query.role;
+
+    let users;
+    if (role) {
+        users = await dao.findUsersByRole(role);
+    } else {
+        users = await dao.findAllUsers();
+    }
     res.json(users);
-  };
+  }
 
   const findUserById = async (req, res) => {
     const user = await dao.findUserById(req.params.userId);
@@ -24,7 +31,7 @@ export default function UserRoutes(app) {
   const updateUser = async (req, res) => {
     const { userId } = req.params;
     const status = await dao.updateUser(userId, req.body);
-    currentUser = await dao.findUserById(userId);
+    req.session["currentUser"] = await dao.findUserById(userId);
     res.json(status);
   };
 
@@ -39,6 +46,7 @@ export default function UserRoutes(app) {
     res.json(currentUser);
   };
   app.post("/api/users/signup", signup);
+
   const signin = async (req, res) => {     
     const { username, password } = req.body;
     const currentUser = await dao.findUserByCredentials(username, password);
@@ -46,6 +54,7 @@ export default function UserRoutes(app) {
       req.session["currentUser"] = currentUser;
     res.json(currentUser);
 } else {
+    console.log(currentUser)
     res.sendStatus(401);
   }
 
@@ -56,11 +65,13 @@ const signout = (req, res) => {
   };
   app.post("/api/users/signout", signout);
 
-  const profile = async (req, res) => {    const currentUser = req.session["currentUser"];
-  if (!currentUser) {
-    res.sendStatus(401);
-    return;
-  }
+  const profile = async (req, res) => {    
+    const currentUser = req.session["currentUser"];
+    if (!currentUser) {
+      res.sendStatus(401);
+      return;
+    }
+    res.json(currentUser);
   };
   
   app.post("/api/users", createUser);

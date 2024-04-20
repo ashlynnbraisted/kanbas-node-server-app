@@ -22,9 +22,9 @@ const getModules = async (req, res) => {
   }
 
 const updateModule = async (req, res) => {
-const { mid } = req.params;
-const status = await dao.updateModule(mid, req.body)
-res.json(status);
+  const { mid } = req.params;
+  const status = await dao.updateModule(mid, req.body)
+  res.json(status);
 }
 
   app.post("/api/courses/:cid/modules", createModule);

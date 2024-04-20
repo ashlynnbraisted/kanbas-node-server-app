@@ -1,10 +1,10 @@
 import model from "./model.js";
-export const createCourse = (course) => {
+export const createCourse = async (course) => {
   delete course._id;
-  model.create(course);
+  const createdCourse = await model.create(course);
+  return createdCourse;
 };
 export const findAllCourses = () => model.find();
 export const findCourseById = (courseId) => model.findById(courseId);
-export const updateCourse = (courseId, course) =>
-  model.updateOne({ _id: courseId }, { $set: course });
+export const updateCourse = (courseId, course) =>  model.updateOne({ _id: courseId }, { $set: course });
 export const deleteCourse = (courseId) => model.deleteOne({ _id: courseId });

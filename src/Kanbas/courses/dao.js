@@ -1,7 +1,7 @@
 import model from "./model.js";
 export const createCourse = (course) => {
   delete course._id;
-  model.create(course);
+  return model.create(course);
 };
 export const findAllCourses = () => model.find();
 export const findCourseById = (courseId) => model.findById(courseId);

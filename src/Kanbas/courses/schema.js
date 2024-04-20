@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
-const coursesSchema = new mongoose.Schema(
+const courseSchema = new mongoose.Schema(
   {
+    id: String,
     name: String,
     number: String,
-    startDate: String,
-    endDate: String,
+    startDate: Date,
+    endDate: Date,
     department: String,
     credits: Number,
-    color: String,
     description: String,
   },
-  { collection: "courses" }
+  { collection: "Courses" }
 );
-export default coursesSchema;
+export default courseSchema;

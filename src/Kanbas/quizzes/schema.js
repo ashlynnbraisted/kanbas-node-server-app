@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const quizDetailsSchema = new mongoose.Schema(
   {
     title: String,
+    courseId: String,
     quizType: {
       type: String,
       enum: [
@@ -61,6 +62,7 @@ const quizDetailsSchema = new mongoose.Schema(
     availableDate: Date,
     untilDate: Date,
     numberQuestions: Number,
+    published: Boolean,
   },
   { collection: "QuizDetails" }
 );

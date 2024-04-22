@@ -19,7 +19,7 @@ const questionSchema = new mongoose.Schema(
         type: String,
         required: true,
         default: "Enter Question Text Here",
-    },
+    }, 
     answer: { 
         type: Array,
         required: true,

@@ -6,7 +6,7 @@ import UserRoutes from "./src/Kanbas/Users/routes.js";
 import ModuleRoutes from "./src/Kanbas/modules/routes.js";
 import CourseRoutes from "./src/Kanbas/courses/routes.js";
 import QuizDetailsRoutes from "./src/Kanbas/quizzes/routes.js";
-import QuestionRoutes from "./src/Kanbas/questions/routes.js";
+import QuestionRoutes from "./src/Kanbas/question/routes.js";
 import Lab5 from "./Lab5.js";
 import Hello from "./Hello.js";
 import cors from "cors";

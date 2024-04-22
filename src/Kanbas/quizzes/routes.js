@@ -18,7 +18,14 @@ export default function QuizDetailsRoutes(app) {
     res.json(quiz);
   };
 
+  const updateQuiz = async (req, res) => {
+    const { id } = req.params;
+    const status = await dao.updateQuiz(id, req.body);
+    res.json(status);
+  };
+
   app.get("/api/quizDetails", getAllQuizzes);
   app.get("/api/quizDetails/:cid", getQuizzesByCourseId);
   app.get("/api/quizDetails/quiz/:id", getQuizByQuizId);
+  app.post("/api/quizDetails/:id", updateQuiz);
 }

@@ -6,3 +6,6 @@ export const findQuizzesByCourseId = (courseId) =>
 
 //WTF IDEK
 export const findQuizById = (id) => model.find({ id: parseInt(id) });
+
+export const updateQuiz = (quizId, quiz) =>
+  model.updateOne({ _id: quizId }, { $set: quiz });

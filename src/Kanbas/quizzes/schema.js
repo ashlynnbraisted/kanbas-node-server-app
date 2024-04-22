@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const quizDetailsSchema = new mongoose.Schema(
   {
     title: String,
+    description: String,
     courseId: String,
     quizType: {
       type: String,

@@ -10,7 +10,7 @@ const questionSchema = new mongoose.Schema(
         default: "Multiple Choice",
     },
     title: {
-        type: String,
+        type: String, 
         required: true,
         default: "Question Title", 
     },

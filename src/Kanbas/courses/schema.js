@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-const coursesSchema = new mongoose.Schema(
+const courseSchema = new mongoose.Schema(
   {
     name: String,
     number: String,
-    startDate: String,
-    endDate: String,
+    startDate: Date,
+    endDate: Date,
     image: String,
   },
   { collection: "Courses" }
 );
-export default coursesSchema;
+export default courseSchema;

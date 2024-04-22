@@ -3,7 +3,7 @@ import * as dao from "./dao.js";
 export default function CourseRoutes(app) {
   const findAllCourses = async (req, res) => {
     const courses = await dao.findAllCourses();
-    res.json(courses);
+    res.send(courses);
   };
 
   const findCourseById = async (req, res) => {

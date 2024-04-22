@@ -5,6 +5,7 @@ import session from "express-session";
 import UserRoutes from "./src/Kanbas/Users/routes.js";
 import ModuleRoutes from './src/Kanbas/modules/routes.js';
 import CourseRoutes from './src/Kanbas/courses/routes.js';
+import QuizDetailsRoutes from './src/Kanbas/quizzes/routes.js';
 import Lab5 from './Lab5.js'
 import Hello from './Hello.js';
 import cors from "cors";
@@ -28,11 +29,12 @@ const sessionOptions = {
       //domain: process.env.HTTP_SERVER_DOMAIN,
     };
   }
-  app.use(session(sessionOptions));
+app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app);
 ModuleRoutes(app);
 CourseRoutes(app);
+QuizDetailsRoutes(app);
 Lab5(app);
 Hello(app)
 app.listen(process.env.PORT || 4000)

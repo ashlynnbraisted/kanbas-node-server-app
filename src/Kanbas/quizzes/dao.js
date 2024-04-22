@@ -18,4 +18,4 @@ export const updateQuiz = (quizId, quiz) =>
 export const deleteQuiz = (quiz_id) => model.deleteOne({ _id: quiz_id });
 
 export const updatePublish = (quizId, val) =>
-  model.updateOne({ id: quizId }, { $set: { published: val } });
+  model.updateOne({ _id: quizId }, { $set: { published: val } });

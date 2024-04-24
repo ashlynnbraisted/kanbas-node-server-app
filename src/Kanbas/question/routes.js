@@ -16,15 +16,22 @@ export default function QuestionRoutes(app) {
     res.json(question);
   };
 
-  const updateQuestion = async (req, res) => {
-    const { questionId } = req.params;
-    const status = await dao.updateQuestion(questionId, req.body);
-    const currentQuestion = await dao.findQuestionById(questionId);
-    res.json(status);
-  };
+    const updateQuestion = async (req, res) => {
+        const { questionId } = req.params;
+        const status = await dao.updateQuestion(questionId, req.body);
+        const currentQuestion = await dao.findQuestionById(questionId);
+        res.json(status);
+      };
 
-  app.post("/api/questions", createQuestion);
-  app.get("/api/questions/:quizId", findAllQuestionsByQuizId);
-  app.get("/api/questions/id/:questionId", findQuestionById);
-  app.put("/api/questions/:questionId", updateQuestion);
+      const deleteQuestion = async (req, res) => {
+        const status = await dao.deleteQuestion(req.params.questionId);
+        res.json(status);
+    };
+
+    app.post("/api/questions", createQuestion);
+    app.get("/api/questions/:quizId", findAllQuestionsByQuizId);
+    app.get("/api/questions/id/:questionId", findQuestionById);
+    app.put("/api/questions/:questionId", updateQuestion);
+    app.delete("/api/questions/:questionId", deleteQuestion); 
+
 }

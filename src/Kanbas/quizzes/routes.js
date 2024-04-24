@@ -1,4 +1,5 @@
 import * as dao from "./dao.js";
+import * as questionDao from "../question/dao.js";
 export default function QuizDetailsRoutes(app) {
   const getAllQuizzes = async (req, res) => {
     const quizzes = await dao.findAllQuizzes();
@@ -7,6 +8,12 @@ export default function QuizDetailsRoutes(app) {
 
   const getQuizzesByCourseId = async (req, res) => {
     const quizzes = await dao.findQuizzesByCourseId(req.params.cid);
+    quizzes.forEach(async (quiz) => {
+      const numQuestions = await questionDao.findAllQuestionsByQuizId(quiz.id);
+      await dao.updateNumberQuestions(quiz._id, numQuestions.length);
+      console.log(quiz, numQuestions, quiz.id);
+      quiz.numberQuestions = numQuestions.length;
+    });
     res.json(quizzes);
   };
 
